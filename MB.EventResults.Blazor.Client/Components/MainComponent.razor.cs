@@ -18,17 +18,19 @@ public partial class MainComponent {
   public Func<string> GradeUrlResolver { get; set; }
 
   [Parameter]
-  public Func<string> ResultUrlResolver { get; set; }
+  public Func<string, string> ResultUrlResolver { get; set; }
 
   protected async Task SelectClass(ChangeEventArgs e) {
     var grade = _Grades.FirstOrDefault(p => p.Name == e.Value.ToString());
 
     if (grade?.Id is not null) {
+      Func<string, string> defaultResolver = (p) => UrlServerClientConstants.GetClass.Replace("{id}", p);
+
       _SelectedEventResult = null;
       _EventDate = null;
       _Loading = true;
       await Task.Delay(100);
-      var result = await DataClient.Get(ResultUrlResolver ?? (() => UrlServerClientConstants.GetClass.Replace("{id}", grade.Id)));
+      var result = await DataClient.Get(ResultUrlResolver ?? defaultResolver, grade.Id);
       _Loading = false;
       await Task.Delay(100);
       _SelectedEventResult = result?.Grade;
