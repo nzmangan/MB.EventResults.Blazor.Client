@@ -28,7 +28,7 @@ public partial class MainComponent {
       _EventDate = null;
       _Loading = true;
       await Task.Delay(100);
-      var result = await DataClient.Get(GradeUrlResolver ?? (() => UrlServerClientConstants.GetClass.Replace("{id}", grade.Id)));
+      var result = await DataClient.Get(ResultUrlResolver ?? (() => UrlServerClientConstants.GetClass.Replace("{id}", grade.Id)));
       _Loading = false;
       await Task.Delay(100);
       _SelectedEventResult = result?.Grade;
