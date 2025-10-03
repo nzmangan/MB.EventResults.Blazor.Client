@@ -1,0 +1,11 @@
+﻿global using System.Net;
+global using System.Net.Http.Json;
+global using System.Text.Json;
+global using MB.EventResults.Blazor.Shared;
+global using MB.OResults.Core;
+global using Microsoft.AspNetCore.Components;
+global using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+global using Microsoft.AspNetCore.Components.WebAssembly.Http;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Logging;
+global using Microsoft.JSInterop;
