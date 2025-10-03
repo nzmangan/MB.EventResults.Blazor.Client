@@ -1,6 +1,6 @@
 ﻿namespace MB.EventResults.Blazor.Client;
 
 public interface IDataClient {
-  Task<SingleGradeResult> Get(string id);
-  Task<List<EventGrade>> Grades();
+  Task<SingleGradeResult> Get(Func<string> urlResolver);
+  Task<List<EventGrade>> Grades(Func<string> urlResolver);
 }

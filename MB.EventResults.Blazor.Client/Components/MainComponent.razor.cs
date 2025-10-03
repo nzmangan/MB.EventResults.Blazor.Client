@@ -14,6 +14,12 @@ public partial class MainComponent {
   [Inject]
   public ITextService TextService { get; set; }
 
+  [Parameter]
+  public Func<string> GradeUrlResolver { get; set; }
+
+  [Parameter]
+  public Func<string> ResultUrlResolver { get; set; }
+
   protected async Task SelectClass(ChangeEventArgs e) {
     var grade = _Grades.FirstOrDefault(p => p.Name == e.Value.ToString());
 
@@ -22,7 +28,7 @@ public partial class MainComponent {
       _EventDate = null;
       _Loading = true;
       await Task.Delay(100);
-      var result = await DataClient.Get(grade.Id);
+      var result = await DataClient.Get(GradeUrlResolver ?? (() => UrlServerClientConstants.GetClass.Replace("{id}", grade.Id)));
       _Loading = false;
       await Task.Delay(100);
       _SelectedEventResult = result?.Grade;
@@ -58,7 +64,7 @@ public partial class MainComponent {
     ];
 
     _Loading = true;
-    var grades = await DataClient.Grades();
+    var grades = await DataClient.Grades(GradeUrlResolver ?? (() => UrlServerClientConstants.Grades));
     grades.Insert(0, new EventGrade { Id = null, Name = "" });
     _Grades = grades;
     _Loading = false;
