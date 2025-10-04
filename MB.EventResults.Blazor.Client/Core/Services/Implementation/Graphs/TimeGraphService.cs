@@ -18,7 +18,7 @@ public class TimeGraphService(IGraphOptionsService _GraphOptionsService) : ITime
   public List<double?> GetValues(Runner runner) {
     List<double?> items = [];
 
-    if (_GraphOptionsService.Reference?.Name == "superman") {
+    if (_GraphOptionsService.Reference?.GetName() == "superman") {
       double timeBehind = 0;
       for (var j = 0; j < runner.Splits.Count; j++) {
         var split = runner.Splits[j];

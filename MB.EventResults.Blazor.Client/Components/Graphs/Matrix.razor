@@ -77,7 +77,7 @@
         <th class="headcol">
           <div class="r">
             <div class="p">@p.Position</div>
-            <div class="n">@p.Name</div>
+            <div class="n">@p.GetName()</div>
             <div class="c">@p.Club</div>
             <div class="h"><span @onclick="@(() => HideRunner(p))">X</span></div>
           </div>
@@ -127,7 +127,7 @@
                 @if (control.Pack is not null) {
                   foreach (var person in control.Pack) {
                     <div class="@ViewHelperService.Pack(person.Delta)">
-                      @($"{ViewHelperService.GetAbbrivation(person.Name)} {person.Delta.FormatTime()}s")
+                      @($"{ViewHelperService.GetAbbrivation(person.GetName())} {person.Delta.FormatTime()}s")
                     </div>
                   }
                 }

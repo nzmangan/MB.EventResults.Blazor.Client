@@ -1,7 +1,7 @@
 ﻿namespace MB.EventResults.Blazor.Client.Components;
 
 public partial class Card : ComponentBase {
-  private string cssClass = "";
+  private string _CssClass = "";
 
   [Parameter]
   public RenderFragment ChildContent { get; set; }
@@ -13,6 +13,6 @@ public partial class Card : ComponentBase {
   public string Title { get; set; }
 
   protected override void OnParametersSet() {
-    cssClass = "card card-custom" + (Shadow ? " shadow" : "");
+    _CssClass = "card card-custom" + (Shadow ? " shadow" : "");
   }
 }

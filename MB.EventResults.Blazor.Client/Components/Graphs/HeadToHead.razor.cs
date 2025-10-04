@@ -5,7 +5,7 @@ public partial class HeadToHead : ComponentBase {
   public GradeResult Result { get; set; }
 
   protected MarkupString ShowComparison(Runner runner1, Runner runner2) {
-    if (runner1.Name == runner2.Name) {
+    if (runner1.GetName() == runner2.GetName()) {
       return new();
     }
 
@@ -29,6 +29,6 @@ public partial class HeadToHead : ComponentBase {
 
     string cssClass = runner1Points > runner2Points ? "pp5" : "pm1";
 
-    return new($@"<div title=""{runner1.Name} vs {runner2.Name}"" class=""{cssClass}"">{runner1Points}/{drawPoints}/{runner2Points}</div>");
+    return new($@"<div title=""{runner1.GetName()} vs {runner2.GetName()}"" class=""{cssClass}"">{runner1Points}/{drawPoints}/{runner2Points}</div>");
   }
 }

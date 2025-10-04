@@ -27,9 +27,9 @@ public partial class Time : ComponentBase {
   private async Task UpdateReference(ChangeEventArgs e) {
     var selectedValue = e.Value.ToString();
     if (selectedValue != "superman") {
-      GraphOptionsService.Reference = Result?.Runners?.FirstOrDefault(p => p.Name == selectedValue);
+      GraphOptionsService.Reference = Result?.Runners?.FirstOrDefault(p => p.GetName() == selectedValue);
     } else {
-      GraphOptionsService.Reference = new Runner { Name = "superman" };
+      GraphOptionsService.Reference = new Runner { FirstName = "superman" };
     }
     await RenderGraph();
   }

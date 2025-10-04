@@ -1,7 +1,7 @@
 ﻿<ul class="list-group">
   @foreach (var runner in Runners) {
     <li class="list-group-item">
-      @ViewHelperService.GetAbbrivation(runner.Name) = @runner.Name - @runner.Club
+      @ViewHelperService.GetAbbrivation(runner.GetName()) = @runner.GetName() - @runner.Club
     </li>
   }
 </ul>

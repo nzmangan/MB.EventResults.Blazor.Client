@@ -28,7 +28,7 @@ public partial class Matrix : ComponentBase {
   }
 
   private void HideRunner(Runner runner) {
-    _HiddenRunners.Add(runner.Name);
+    _HiddenRunners.Add(runner.GetName());
     FilterRunners();
   }
 
@@ -38,6 +38,6 @@ public partial class Matrix : ComponentBase {
   }
 
   private void FilterRunners() {
-    _VisibleRunners = [.. Result.Runners.Where(p => !_HiddenRunners.Contains(p.Name))];
+    _VisibleRunners = [.. Result.Runners.Where(p => !_HiddenRunners.Contains(p.GetName()))];
   }
 }

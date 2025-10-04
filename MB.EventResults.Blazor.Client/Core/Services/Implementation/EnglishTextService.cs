@@ -1,10 +1,10 @@
 ﻿namespace MB.EventResults.Blazor.Client;
 
 public class TextService : ITextService {
-  private readonly Dictionary<string, string> Current = Translations.English;
+  private readonly Dictionary<string, string> _Current = Translations.English;
 
   private MarkupString Get(string key) {
-    return (MarkupString)(Current.TryGetValue(key, out var s) ? s : "");
+    return (MarkupString)(_Current.TryGetValue(key, out var s) ? s : "");
   }
 
   public MarkupString ShowSplits => Get("ShowSplits");

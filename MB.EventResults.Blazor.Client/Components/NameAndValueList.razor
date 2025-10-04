@@ -25,7 +25,7 @@
 
       var v = Formatter is null ? runner.Value.ToString() : Formatter(runner.Value);
       <li class="list-group-item">
-        @prefix@v@Unit - @runner.Name - @runner.Club
+        @prefix@v@Unit - @($"{runner?.FirstName} {runner?.LastName}".Trim()) - @runner.Club
       </li>
     }
   }

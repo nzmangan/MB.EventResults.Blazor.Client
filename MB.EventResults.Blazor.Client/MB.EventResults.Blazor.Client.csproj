@@ -16,7 +16,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.20" PrivateAssets="all" />
   </ItemGroup>
   <ItemGroup Condition="'$(UseNugetPackage)' == 'true'">
-    <PackageReference Include="MB.EventResults.Blazor.Shared" Version="1.2.4" />
+    <PackageReference Include="MB.EventResults.Blazor.Shared" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup Condition="'$(UseNugetPackage)' != 'true'">
     <ProjectReference Include="..\..\Shared\MB.EventResults.Blazor.Shared\MB.EventResults.Blazor.Shared.csproj" />
